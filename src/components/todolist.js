@@ -1,9 +1,9 @@
 import React from 'react';
  
-export default function ToDoList({ todo }) {
+export default function ToDoList({ item, pressHandler }) {
    return (
-    <div className="todo">
-    {todo.text}
+    <div onClick={() => pressHandler(item.key)} style={{color: "red"}}className="item">
+    {item.text}
   </div>
    );
 };

@@ -10,20 +10,24 @@ export default function App() {
     { text: 'feed the cat', key: '3' },
   ]);
 
+  const pressHandler = (key) => {
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.key != key);
+    });
+  };
+
   return (
     <div className='App'>
       <Header />
-      {/* <p>
-          Rosa's Todo List
-        </p> */}
       {/* add form here */}
-      <div className='todo-list'>
-        {todos.map((todo, index) => (
+      <div className='item-list'>
+        {todos.map((item, index) => (
           <ToDoList // equivalent as FlatList
             data={todos}
             key={index}
             index={index}
-            todo={todo}
+            item={item}
+            pressHandler={pressHandler}
           />
         ))}
       </div>

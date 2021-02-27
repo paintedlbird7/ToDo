@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
    return (
         <header>
-           <h1>To Do List header</h1>
+           <h1>Rosa's To Do List header</h1>
        </header>
 //     <div style={styles.header}>
 //     <div style={styles.title}>My Todos</div>
