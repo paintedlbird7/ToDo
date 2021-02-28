@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
 
-export default function AddTodo() {
+export default function AddTodo({ submitHandler }) { //destructuring submitHandler
     const [text, setText] = useState('');
     
-    const changeHandler = (val) => {
+// handle changes when typing
+    //   const changeHandler = (e) => {
+    //     setText(e.currentTarget.value)
+    // }
+
+// handle changes when typing
+   const changeHandler = (val) => {
         setText(val)
     }
+
     return (
         <form>
-            <div style={{ borderBottomColor: 'black' }}>a form to add my To-do's here
+            <div style={{ borderBottomColor: 'yellow' }}>
             <input
                 //style={styles.input}
                 type="text"
                 placeholder='add a new todo'
                 onChangeText={changeHandler}
             />
+            <button onClick={() => 
+                // submitHandler
+                console.log(text)} title='add todo'>Submit</button>
             </div>
             </form>
 
