@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, Text } from 'react';
 import Header from './components/header';
 import ToDoList from './components/todolist';
+import AddTodo from './components/addTodo';
 
 export default function App() {
   const [todos, setTodos] = useState([
@@ -20,6 +21,7 @@ export default function App() {
     <div className='App'>
       <Header />
       {/* add form here */}
+      <AddTodo />
       <div className='item-list'>
         {todos.map((item, index) => (
           <ToDoList // equivalent as FlatList
