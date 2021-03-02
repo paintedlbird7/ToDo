@@ -1,42 +1,28 @@
 import React, { useState } from 'react';
 
-export default function AddTodo({ submitHandler }) { //destructuring submitHandler
-    const [text, setText] = useState('');
+export default function AddTodo({ addTask }) { //destructuring submitHandler
+    const [value, setValue] = useState('');
     
-// handle changes when typing
-    //   const changeHandler = (e) => {
-    //     setText(e.currentTarget.value)
-    // }
+    const handleSubmit = e => {
+      e.preventDefault();
+      if (!value) return;
+      
+      addTask(value);
+      setValue("");
+      }
 
-// handle changes when typing
-   const changeHandler = (val) => {
-        setText(val)
-    }
-
+    
     return (
-        <form>
-            <div style={{ borderBottomColor: 'yellow' }}>
+        <form onSubmit={handleSubmit}>
             <input
-                //style={styles.input}
                 type="text"
+                value={value}
                 placeholder='add a new todo'
-                onChangeText={changeHandler}
+                onChange={e => setValue(e.target.value)}
             />
+           
             <button onClick={() => 
-                // submitHandler
-                console.log(text)} title='add todo'>Submit</button>
-            </div>
+                addTask(value)} title='add todo'>Submit</button>
             </form>
-
     );
  };
-  
-//  const styles = StyleSheet.create({
-//     input: {
-//       marginBottom: 10,
-//       paddingHorizontal: 8,
-//       paddingVertical: 6,
-//       borderBottomWidth: 1,
-//       borderBottomColor: '#ddd',
-//     },
-//   });

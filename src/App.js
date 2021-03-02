@@ -1,48 +1,37 @@
 import './App.css';
-import React, { useState, Text } from 'react';
+import React, { useState, } from 'react';
 import Header from './components/header';
 import ToDoList from './components/todolist';
 import AddTodo from './components/addTodo';
 
-export default function App() {
-  const [todos, setTodos] = useState([
-    { text: 'buy coffee', key: '1' },
-    { text: 'create an app', key: '2' },
-    { text: 'feed the cat', key: '3' },
+export default function Todo() {
+  const [tasks, setTasks] = useState([
+    { title: 'buy coffee', key: '1' },
+    { title: 'create an app', key: '2' },
+    { title: 'feed the cat', key: '3' },
   ]);
 
-// deletes a todo upon click
+// DELETES a todo upon click
   const pressHandler = (key) => {
-    setTodos(prevTodos => {
-      return prevTodos.filter(todo => todo.key != key);
+    setTasks(prevTasks => {
+      return prevTasks.filter(tasks => tasks.key != key);
     });
   };
 
-  // adds a todo upon submit of button
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   AddTodo(e);
-  //   setTodos('');
-  // }
-  
-// adds a todo upon submit of button, gets a random id/key
-  const submitHandler = (text) => {
-  setTodos((prevTodos) => {
-    return [
-      {text: text, key: Math.random().toString()},
-      ...prevTodos
-    ]
-  })
-}
+  // ADDS a todo upon submit
+  const addTask = title => {
+    const newTasks = [...tasks, { title, completed: false }];
+    setTasks(newTasks);
+};
+
   return (
     <div className='App'>
       <Header />
-      {/* add form here */}
-      <AddTodo submitHandler={submitHandler} />
+      <AddTodo addTask={addTask}/>
       <div className='item-list'>
-        {todos.map((item, index) => (
+        {tasks.map((item, index) => (
           <ToDoList // equivalent as FlatList
-            data={todos}
+            data={tasks}
             key={index}
             index={index}
             item={item}

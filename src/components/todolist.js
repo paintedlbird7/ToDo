@@ -6,7 +6,7 @@ export default function ToDoList({ item, pressHandler }) {
     onClick={() => pressHandler(item.key)} 
     style={{color: "red"}}
     className="item">
-    {item.text}
+    {item.title}
   </div>
    );
 };
