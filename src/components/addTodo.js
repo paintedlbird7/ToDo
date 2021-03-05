@@ -19,8 +19,7 @@ export default function AddTodo({ addTask }) { //destructuring submitHandler
                 value={value}
                 placeholder='add a new todo'
                 onChange={e => setValue(e.target.value)}
-            />
-           
+            />    
             {/* <button onClick={() => //this duplicates AddTask text
                 // addTask(value)} title='add todo'>Submit</button> */} 
             </form>
