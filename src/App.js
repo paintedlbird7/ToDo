@@ -32,12 +32,12 @@ function Todo() {
 
 // DELETES a todo upon click
   const pressHandler = (key) => {
-    setTasks(prevTasks => {
-      return prevTasks.filter(tasks => tasks.key != key);
-    });
+    const newTasks = [...tasks];
+    newTasks.splice(key, 1);    
+    setTasks(newTasks);
   };
 
-  // ADDS a todo upon submit
+// ADDS a todo upon submit
   const addTask = title => {
     const newTasks = [...tasks, { title, completed: false }];
     setTasks(newTasks);
