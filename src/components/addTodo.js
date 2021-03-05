@@ -21,8 +21,8 @@ export default function AddTodo({ addTask }) { //destructuring submitHandler
                 onChange={e => setValue(e.target.value)}
             />
            
-            <button onClick={() => 
-                addTask(value)} title='add todo'>Submit</button>
+            {/* <button onClick={() => //this duplicates AddTask text
+                // addTask(value)} title='add todo'>Submit</button> */} 
             </form>
     );
  };
